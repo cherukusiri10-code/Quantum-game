@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Quantum Detective</title>
+
+    <link rel="stylesheet"
+          href="style.css">
+
+</head>
+
+
+<body>
+
+<div class="game-container">
+
+    <!-- HEADER -->
+
+    <header>
+
+        <h1>🕵️ QUANTUM DETECTIVE</h1>
+
+        <p>THE COLLAPSED CASE</p>
+
+        <div class="score-box">
+            SCORE:
+            <span id="score">0</span>
+        </div>
+
+    </header>
+
+
+    <!-- CASE -->
+
+    <section class="case-info">
+
+        <h2>
+            CASE #001 — THE STOLEN QUANTUM ARTIFACT
+        </h2>
+
+        <p>
+            A mysterious quantum artifact has disappeared
+            from the research laboratory.
+        </p>
+
+        <p>
+            Three suspects remain.
+            The evidence exists in a quantum superposition.
+        </p>
+
+    </section>
+
+
+    <!-- MAIN DASHBOARD -->
+
+    <main class="dashboard">
+
+
+        <!-- SUSPECT PANEL -->
+
+        <section class="panel suspects">
+
+            <h2>👤 SUSPECTS</h2>
+
+
+            <div class="suspect-card">
+
+                <h3>Alex</h3>
+
+                <p>Lab Engineer</p>
+
+                <div class="probability-bar">
+
+                    <div id="alex-bar"></div>
+
+                </div>
+
+                <span id="alex-probability">
+                    0%
+                </span>
+
+            </div>
+
+
+            <div class="suspect-card">
+
+                <h3>Maya</h3>
+
+                <p>Security Analyst</p>
+
+                <div class="probability-bar">
+
+                    <div id="maya-bar"></div>
+
+                </div>
+
+                <span id="maya-probability">
+                    0%
+                </span>
+
+            </div>
+
+
+            <div class="suspect-card">
+
+                <h3>Ravi</h3>
+
+                <p>Courier</p>
+
+                <div class="probability-bar">
+
+                    <div id="ravi-bar"></div>
+
+                </div>
+
+                <span id="ravi-probability">
+                    0%
+                </span>
+
+            </div>
+
+        </section>
+
+
+        <!-- CRIME SCENE -->
+
+        <section class="panel crime-scene">
+
+            <h2>🔬 CRIME SCENE</h2>
+
+            <div class="artifact">
+
+                ⚛️
+
+            </div>
+
+            <h3>Quantum Laboratory</h3>
+
+            <p>
+                Artifact location:
+                Laboratory Vault
+            </p>
+
+            <p>
+                Status:
+                <strong>MISSING</strong>
+            </p>
+
+        </section>
+
+
+        <!-- QUANTUM STATE -->
+
+        <section class="panel quantum-state">
+
+            <h2>⚛️ QUANTUM STATE</h2>
+
+            <div class="state-circle">
+
+                <span>
+                    Ψ
+                </span>
+
+            </div>
+
+            <h3 id="state-status">
+                SUPERPOSITION
+            </h3>
+
+            <button id="measure-button">
+                🔬 MEASURE EVIDENCE
+            </button>
+
+            <button id="reset-button">
+                🔄 RESET STATE
+            </button>
+
+        </section>
+
+
+    </main>
+
+
+    <!-- EVIDENCE -->
+
+    <section class="evidence-section">
+
+        <h2>🔎 EVIDENCE</h2>
+
+
+        <div class="evidence-grid">
+
+
+            <div class="evidence-card"
+                 onclick="selectEvidence('keycard')">
+
+                <div class="evidence-icon">
+                    🪪
+                </div>
+
+                <h3>Keycard</h3>
+
+                <p>
+                    Laboratory access record
+                </p>
+
+            </div>
+
+
+            <div class="evidence-card"
+                 onclick="selectEvidence('camera')">
+
+                <div class="evidence-icon">
+                    📹
+                </div>
+
+                <h3>Security Camera</h3>
+
+                <p>
+                    Camera footage
+                </p>
+
+            </div>
+
+
+            <div class="evidence-card"
+                 onclick="selectEvidence('footprint')">
+
+                <div class="evidence-icon">
+                    👣
+                </div>
+
+                <h3>Footprint</h3>
+
+                <p>
+                    Footprint near vault
+                </p>
+
+            </div>
+
+
+            <div class="evidence-card"
+                 onclick="selectEvidence('phone')">
+
+                <div class="evidence-icon">
+                    📱
+                </div>
+
+                <h3>Phone Signal</h3>
+
+                <p>
+                    Signal near laboratory
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+    <!-- INTERFERENCE -->
+
+    <section class="interference-panel">
+
+        <h2>
+            ⚛️ QUANTUM INTERFERENCE
+        </h2>
+
+        <p>
+            Quantum paths can reinforce or cancel
+            each other depending on their phase.
+        </p>
+
+
+        <div class="paths">
+
+
+            <div class="path-box">
+
+                <h3>
+                    PATH A
+                </h3>
+
+                <p>
+                    📹 Security Camera
+                </p>
+
+                <p>
+                    Phase:
+                    <span id="phase-a">
+                        0°
+                    </span>
+                </p>
+
+            </div>
+
+
+            <div class="path-box">
+
+                <h3>
+                    PATH B
+                </h3>
+
+                <p>
+                    👣 Footprint
+                </p>
+
+                <p>
+                    Phase:
+                    <span id="phase-b">
+                        Variable
+                    </span>
+                </p>
+
+            </div>
+
+
+        </div>
+
+
+        <button id="interference-button">
+
+            ⚡ RUN INTERFERENCE
+
+        </button>
+
+
+        <div id="interference-result">
+
+            Waiting for interference...
+
+        </div>
+
+    </section>
+
+
+    <!-- GAME MESSAGE -->
+
+    <section class="message-panel">
+
+        <h2>
+            📡 INVESTIGATION LOG
+        </h2>
+
+        <p id="game-message">
+
+            Welcome Detective.
+            Begin your investigation.
+
+        </p>
+
+    </section>
+
+
+</div>
+
+
+<!-- SCRIPTS -->
+
+<script src="quantum.js"></script>
+
+<script src="levels.js"></script>
+
+<script src="game.js"></script>
+
+
+</body>
+
+</html>
